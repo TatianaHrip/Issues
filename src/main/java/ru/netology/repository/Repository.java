@@ -10,6 +10,10 @@ import java.util.List;
 public class Repository {
     private List<Issues> items = new ArrayList<>();
 
+    public Repository() {
+
+    }
+
     public void save(Issues item) {
         items.add(item);
     }
@@ -39,4 +43,7 @@ public class Repository {
         return items.addAll(items);
     }
 
+    public Repository(List<Issues> items) {
+        this.items = items;
+    }
 }

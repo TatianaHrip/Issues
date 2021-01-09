@@ -75,17 +75,11 @@ public class ManagerTest {
         assertEquals(expected, actual);
     }
 
-    @Test
-    public void filterByAuthor() {
-        List<Issues> expected = List.of(issues2, issues3);
-        List<Issues> actual = manager.filterByAuthor("Kim");
-        assertEquals(expected, actual);
-    }
 
     @Test
     public void filterByAuthorWithPredicate() {
         Predicate<String> equalsByAuthor = t -> t.equals("Kim");
-        List<Issues> expected = List.of(issues2, issues3);
+        List<Issues> expected = List.of(issues2,issues1);
         List<Issues> actual = manager.filterByAuthorWithPredicate(equalsByAuthor);
         assertEquals(expected, actual);
     }
@@ -131,7 +125,7 @@ public class ManagerTest {
 
     @Test
     public void sortByAuthor() {
-        List<Issues> expected = List.of(issues4, issues2, issues3, issues1);
+        List<Issues> expected = List.of( issues4, issues3, issues2, issues1);
         List<Issues> actual = manager.sortByAuthor();
         assertEquals(expected, actual);
     }

@@ -22,5 +22,4 @@ public class Issues {
     private HashSet<String> lable;
     private HashSet<String> assignee;
 
-
 }

@@ -2,10 +2,11 @@ package ru.netology.manager;
 
 import ru.netology.domain.Issues;
 import ru.netology.repository.Repository;
+import java.util.function.Predicate;
 
 import java.util.*;
 import java.util.List;
-import java.util.function.Predicate;
+
 
 public class Manager {
     private Repository repository = new Repository();
@@ -27,24 +28,14 @@ public class Manager {
         return result;
     }
 
-    public List<Issues> filterByAuthor(String author) {
+    public List<Issues> filterByAuthorWithPredicate(Predicate<String> byAuthor) {
         List<Issues> result = new ArrayList<>();
         for (Issues issues : returnAll()) {
-            if (author.equals(issues.Issues())) {
+            if (byAuthor.test(issues.getAuthor())) {
                 result.add(issues);
             }
         }
         return result;
-    }
-
-    public List<Issues> filterByAuthorWithPredicate(Predicate<String> byAuthor) {
-        List<Issues> resuit = new ArrayList<>();
-        for (Issues issues : returnAll()) {
-            if (byAuthor.test(issues.getAuthor())) {
-                resuit.add(issues);
-            }
-        }
-        return resuit;
     }
 
     public List<Issues> filterByLabelWithPredicate(Predicate<String> predicateLabel) {
