@@ -28,13 +28,13 @@ public class Manager {
     }
 
     public List<Issues> filterByAuthor(String author) {
-        List<Issues> resuit = new ArrayList<>();
+        List<Issues> result = new ArrayList<>();
         for (Issues issues : returnAll()) {
             if (author.equals(issues.Issues())) {
-                resuit.add(issues);
+                result.add(issues);
             }
         }
-        return resuit;
+        return result;
     }
 
     public List<Issues> filterByAuthorWithPredicate(Predicate<String> byAuthor) {
